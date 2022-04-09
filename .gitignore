@@ -1,0 +1,4 @@
+**/node_modules
+**/**/node_modules
+*/useUniapp/uni-app-vue3-demo-master
+*.zip
