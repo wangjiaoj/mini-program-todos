@@ -4,34 +4,45 @@
       <text class="title">{{ title }}</text>
     </view>
 	<scroll-view scroll-y="true">
-		<view class="list-item" v-for="item in list.list" :key="item.id">
+	    <uni-card :title="item.title" v-for="item in list.list" :key="item.id"
+		@click="goDetail(item)">
+	     <view  class="list-item">
 			<view class="item-logo">
 				 <image class="my-logo" src="/static/logo.png" />
 			</view>
 			<view class="item-desc">
-				<text class="">{{ item.title }}</text>
-			</view>
-		</view>
+				<text>{{ item.title }}</text>
+				<view>{{ item.address }}</view>
+			</view> 
+			 
+		 </view>
+		</uni-card> 
 	</scroll-view>
   </view>
 </template>
 
 <script setup lang="ts">
 import { ref,reactive ,onMounted} from 'vue'
-const title = ref('Hello miniPro test')
+const title = ref('Hello vue3 uni-app test')
 const list = reactive({list:[]})
 onMounted(()=>{
 	setTimeout(()=>{
 		list.list = [{
 			id:1,
-			title:'hello taro'
+			address:'招商银行广东总行',
+			title:'hello 招商'
 		},{
 			id:2,
-			title:'hello uniapp'
+			address:'兴业银行深圳总行',
+			title:'hello 兴业'
 		}]
-	},1000*5)
+	},1000*3)
 })
-
+const goDetail = (item)=>{
+	uni.navigateTo({
+		url:`/pages/detail/index?id=${item.id}`
+	})
+}
 </script>
 
 <style>

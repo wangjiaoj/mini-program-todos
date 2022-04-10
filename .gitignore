@@ -2,3 +2,5 @@
 **/**/node_modules
 */useUniapp/uni-app-vue3-demo-master
 *.zip
+useUniapp/use-vue3-ts-vite-uniapp/dist/*
+useUniapp/use-vue3-ts-vite-uniapp/src/uni_modules/*
